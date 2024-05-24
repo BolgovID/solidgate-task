@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+    postgres:
+        container_name: postgres-solidgate
+        image: postgres
+        environment:
+          POSTGRES_DB: user-balance
+          POSTGRES_USER: solidgate
+          POSTGRES_PASSWORD: password
+          PGDATA: /data/postgres
+        volumes:
+          - ./postgres-solidgate:/data/postgres
+        ports:
+          - "5432:5432"
+        restart: unless-stopped
